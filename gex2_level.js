@@ -160,7 +160,8 @@ class Gex2LevelViewer {
                 offset += 0x10;
 
                 while (keepParsing) {
-                    let numCmds = bytes_to_uint(this.MapData, offset) / 8;
+                    if (bytes_to_ushort(this.MapData, offset) !== 0x00) currentMaterial = null;
+                    let numCmds = bytes_to_ushort(this.MapData, offset + 2) / 8;
                     offset += 8;
                     if (numCmds == 0 && this.MapData[offset] == 0x00) break;
                     for (let i = 0; i < numCmds; ++i) {

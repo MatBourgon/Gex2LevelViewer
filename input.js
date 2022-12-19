@@ -56,4 +56,5 @@ function move_cam(direction){
 	xOff += direction * xRotate;
 	yOff += direction * yRotate;
 	zOff += direction * zRotate;
+    document.getElementById("COORDINATE_MARKER").innerHTML = `(${xOff / WORLD_SCALE}, ${-zOff / WORLD_SCALE}, ${yOff / WORLD_SCALE})`;
 }

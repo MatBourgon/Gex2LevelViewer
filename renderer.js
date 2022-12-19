@@ -154,6 +154,7 @@ function reset() {
     xRotate = -0.7;
     yRotate = -0.68;
     zRotate = -0.71;
+    document.getElementById("COORDINATE_MARKER").innerHTML = `(${xOff / WORLD_SCALE}, ${-zOff / WORLD_SCALE}, ${yOff / WORLD_SCALE})`;
 }
 
 function update_camera_position() {
@@ -246,6 +247,10 @@ function init_controls(container) {
     add_button(controls, 'buttonReset', 'Reset Camera', reset);
     add_break(controls);
     add_break(controls);
+    var coordinates = document.createElement("p");
+    coordinates.innerHTML = "(-, -, -)";
+    coordinates.id = "COORDINATE_MARKER";
+    container.appendChild(coordinates);
     add_notice_box(controls, "Controls: Hold down the left mouse button and move to rotate camera. Use mouse wheel to move forward/backward.");
     container.appendChild(controls);
     reset();
